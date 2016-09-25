@@ -9,6 +9,8 @@
 #  - Git
 #
 # This image would be used as a base for the Jenkins Slave image
+# -----------------------------------------------
+# Update 09/25/2016: Added MAVEN_HOME to the PATH 
 #########################################
 FROM ubuntu:xenial
 
@@ -86,11 +88,9 @@ LABEL redhab1.ci-base.description="Base image for Continuous Integration" \
 # set the environment variables
 ENV JDK_HOME /usr/lib/jvm/jdk1.8.0_101
 ENV JAVA_HOME /usr/lib/jvm/jdk1.8.0_101
-ENV PATH $PATH:$JAVA_HOME/bin
-ENV MAVEN_HOME /opt/maven
-
-# Add /srv/java and jdk on PATH variable
 ENV PATH ${PATH}:${JAVA_HOME}/bin
+ENV MAVEN_HOME /opt/maven
+ENV PATH ${PATH}:${MAVEN_HOME}/bin
 
 # Define default command.
 CMD ["bash"]
