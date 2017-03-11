@@ -4,7 +4,7 @@
 
 Contains:
 
-    - Oracle JDK 8_101
+    - Oracle JDK 8_121
     - Apache Maven 3.3.9
     - Git
 

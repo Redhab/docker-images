@@ -11,6 +11,7 @@
 # This image would be used as a base for the Jenkins Slave image
 # -----------------------------------------------
 # Update 09/25/2016: Added MAVEN_HOME to the PATH 
+# Update 03/11/2017: JDK upgraded to JDK_8u121 
 #########################################
 FROM ubuntu:xenial
 
@@ -20,7 +21,7 @@ MAINTAINER Redha Boukefoussa "redhab@gmail.com"
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install Additional tools
-# Install JDK 8 build 101
+# Install JDK 8 build 121
 # Install MAVEN 3.3.9
 # Install Git: latest (2.7.4)
 RUN apt-get --quiet update \
@@ -32,13 +33,13 @@ RUN apt-get --quiet update \
             wget \
     \
     \
-    && echo "- Downloading Oracle JDK 8 build 101" \
+    && echo "- Downloading Oracle JDK 8 build 121" \
     && wget --quiet \
          --output-document=/tmp/jdk-8.tar.gz \
          --no-check-certificate \
          --no-cookies \
-         --header "Cookie: oraclelicense=accept-securebackup-cookie" \
-         http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz \
+         --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" \
+		 http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-i586.tar.gz
     \
     \
     && echo "- Installing Oracle JDK 8" \
@@ -81,13 +82,13 @@ RUN apt-get --quiet update \
 # export meta-data about this image
 LABEL redhab1.ci-base.description="Base image for Continuous Integration" \
       redhab1.ci-base.java.vendor="Oracle"  \
-      redhab1.ci-base.java.version="1.8.0_101" \
+      redhab1.ci-base.java.version="1.8.0_121" \
       redhab1.ci-base.maven.version="3.3.9" \
       redhab1.ci-base.git.version="latest"
 
 # set the environment variables
-ENV JDK_HOME /usr/lib/jvm/jdk1.8.0_101
-ENV JAVA_HOME /usr/lib/jvm/jdk1.8.0_101
+ENV JDK_HOME /usr/lib/jvm/jdk1.8.0_121
+ENV JAVA_HOME /usr/lib/jvm/jdk1.8.0_121
 ENV PATH ${PATH}:${JAVA_HOME}/bin
 ENV MAVEN_HOME /opt/maven
 ENV PATH ${PATH}:${MAVEN_HOME}/bin
