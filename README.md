@@ -18,7 +18,7 @@ Includes:
  - Jenkins (latest version)
  
 ## [centos7-base-ci-jenkins-slave](https://github.com/Redhab/docker-images/tree/master/centos7-base-ci-jenkins-slave) ##
-**CentOS7: CI Base Jenkins Slave **
+**CentOS7: CI Base Jenkins Slave**
 
 Includes:
 
